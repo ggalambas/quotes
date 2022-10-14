@@ -3,11 +3,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:quotes/src/quotes/domain/illustrated_quote.dart';
-import 'package:quotes/src/quotes/domain/quote.dart';
-import 'package:quotes/src/quotes/presentation/quote_controller.dart';
+import 'package:quotes/src/features/quotes/domain/illustrated_quote.dart';
+import 'package:quotes/src/features/quotes/domain/quote.dart';
+import 'package:quotes/src/features/quotes/presentation/quote_controller.dart';
 
-import '../../mocks.dart';
+import '../../../mocks.dart';
 
 void main() {
   const testQuote = Quote(text: 'Test quote', author: 'Me', genre: 'Test');

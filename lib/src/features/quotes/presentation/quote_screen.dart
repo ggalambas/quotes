@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quotes/src/quotes/data/quote_repository.dart';
-import 'package:quotes/src/quotes/domain/illustrated_quote.dart';
-import 'package:quotes/src/quotes/presentation/quote_controller.dart';
-import 'package:quotes/src/quotes/presentation/quote_page.dart';
+import 'package:quotes/src/features/quotes/data/quote_repository.dart';
+import 'package:quotes/src/features/quotes/domain/illustrated_quote.dart';
+import 'package:quotes/src/features/quotes/presentation/quote_controller.dart';
+import 'package:quotes/src/features/quotes/presentation/quote_page.dart';
 
 class QuoteScreen extends ConsumerWidget {
   const QuoteScreen({Key? key}) : super(key: key);

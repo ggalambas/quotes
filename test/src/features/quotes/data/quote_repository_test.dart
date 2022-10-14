@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
-import 'package:quotes/src/quotes/data/quote_repository.dart';
-import 'package:quotes/src/quotes/domain/quote.dart';
+import 'package:quotes/src/features/quotes/data/quote_repository.dart';
+import 'package:quotes/src/features/quotes/domain/quote.dart';
 
 void main() {
   const testJson = {

@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:quotes/src/quotes/data/quote_repository.dart';
+import 'package:quotes/src/features/quotes/data/quote_repository.dart';
 
 final imageRepositoryProvider = Provider<ImageRepository>(
   (ref) => ImageRepository(client: http.Client()),

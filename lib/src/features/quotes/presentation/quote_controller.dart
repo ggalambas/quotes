@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quotes/src/quotes/data/image_repository.dart';
-import 'package:quotes/src/quotes/data/quote_repository.dart';
-import 'package:quotes/src/quotes/domain/illustrated_quote.dart';
+import 'package:quotes/src/features/quotes/data/image_repository.dart';
+import 'package:quotes/src/features/quotes/data/quote_repository.dart';
+import 'package:quotes/src/features/quotes/domain/illustrated_quote.dart';
 
 final quoteControllerProvider =
     StateNotifierProvider<QuoteController, List<IllustratedQuote>>((ref) {

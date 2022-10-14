@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quotes/src/quotes/domain/illustrated_quote.dart';
-import 'package:quotes/src/quotes/domain/quote.dart';
+import 'package:quotes/src/features/quotes/domain/illustrated_quote.dart';
+import 'package:quotes/src/features/quotes/domain/quote.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'quotation_mark.dart';

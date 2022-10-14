@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:quotes/src/quotes/domain/quote.dart';
+import 'package:quotes/src/features/quotes/domain/quote.dart';
 
 final quoteRepositoryProvider = Provider<QuoteRepository>(
   (ref) => QuoteRepository(client: http.Client()),
