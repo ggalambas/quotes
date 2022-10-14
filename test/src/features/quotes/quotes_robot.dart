@@ -41,7 +41,7 @@ class QuotesRobot {
   }
 
   Future<void> firstPageAnimation() async {
-    await tester.pumpAndSettle(Animate.defaultDuration);
+    await tester.pumpAndSettle(Animate.defaultDuration * 2);
   }
 
   Future<void> scrollUp() async {

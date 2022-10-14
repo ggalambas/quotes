@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class DragUpIndicator extends StatefulWidget {
-  final Widget child;
+  final bool disabled;
   final AsyncCallback? onRefresh;
-  const DragUpIndicator({Key? key, this.onRefresh, required this.child})
-      : super(key: key);
+  final Widget child;
+
+  const DragUpIndicator({
+    Key? key,
+    this.disabled = false,
+    this.onRefresh,
+    required this.child,
+  }) : super(key: key);
 
   @override
   State<DragUpIndicator> createState() => _DragUpIndicatorState();
@@ -23,8 +29,11 @@ class _DragUpIndicatorState extends State<DragUpIndicator>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.disabled) return widget.child;
     return CustomRefreshIndicator(
       reversed: true,
+      leadingScrollIndicatorVisible: false,
+      trailingScrollIndicatorVisible: true,
       offsetToArmed: dragOffset,
       onRefresh: () async => await widget.onRefresh?.call(),
       builder: (context, child, controller) {

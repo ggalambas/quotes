@@ -98,7 +98,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.1"
+    version: "1.5.0"
   cross_file:
     dependency: transitive
     description:
@@ -161,7 +161,7 @@ packages:
       name: file
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.4"
+    version: "6.1.2"
   fixnum:
     dependency: transitive
     description:
@@ -671,7 +671,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "9.4.0"
+    version: "9.0.0"
   watcher:
     dependency: transitive
     description:
