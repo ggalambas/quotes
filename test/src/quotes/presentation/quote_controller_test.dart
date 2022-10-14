@@ -13,9 +13,12 @@ void main() {
   const testQuote = Quote(text: 'Test quote', author: 'Me', genre: 'Test');
   const testImageUrl =
       'https://images.pexels.com/photos/5537770/pexels-photo-5537770.jpeg';
+  final testIllustratedQuote =
+      IllustratedQuote(quote: testQuote, image: Image.network(testImageUrl));
   late MockQuoteRepository quoteRepository;
   late MockImageRepository imageRepository;
   late QuoteController controller;
+
   setUp(() {
     quoteRepository = MockQuoteRepository();
     imageRepository = MockImageRepository();
@@ -26,9 +29,6 @@ void main() {
   });
 
   group('QuoteController', () {
-    test('initial state is empty list', () {
-      expect(controller.debugState, hasLength(0));
-    });
     group('fetchMoreQuotes', () {
       test('fetchMoreQuotes updates state with a quote', () async {
         // setup
@@ -39,12 +39,7 @@ void main() {
         // expect later
         expectLater(
           controller.stream,
-          emits([
-            IllustratedQuote(
-              quote: testQuote,
-              image: Image.network(testImageUrl),
-            )
-          ]),
+          emits([testIllustratedQuote]),
         );
         // run
         controller.fetchMoreQuotes();
