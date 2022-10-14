@@ -19,16 +19,25 @@ void main() {
   };
   late MockClient client;
   late ImageRepository imageRepository;
-  setUp(() {
-    client = MockClient((_) async => Response(jsonEncode(testJson), 200));
-    imageRepository = ImageRepository(client: client);
-  });
 
   group('imageRepository', () {
-    test('fetchImageUrl emits a Url', () async {
-      final imageUrl = await imageRepository.fetchImageUrl('');
-      expect(imageUrl, isA<String>());
-      expect(Uri.parse(imageUrl).isAbsolute, true);
+    group('fetchImageUrl', () {
+      test('returns a Url', () async {
+        client = MockClient((_) async => Response(jsonEncode(testJson), 200));
+        imageRepository = ImageRepository(client: client);
+        expect(
+          await imageRepository.fetchImageUrl(''),
+          testImageUrl,
+        );
+      });
+      test('throws an exception', () {
+        client = MockClient((_) async => Response(jsonEncode(testJson), 404));
+        imageRepository = ImageRepository(client: client);
+        expectLater(
+          () => imageRepository.fetchImageUrl(''),
+          throwsException,
+        );
+      });
     });
   });
 }

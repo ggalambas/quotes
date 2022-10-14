@@ -11,11 +11,16 @@ class Quote with EquatableMixin {
     required this.genre,
   });
 
-  factory Quote.fromJson(Map<String, dynamic> json) => Quote(
-        text: json['quoteText'],
-        author: json['quoteAuthor'],
-        genre: json['quoteGenre'],
-      );
+  factory Quote.fromJson(Map<String, dynamic> json) {
+    print(json['quoteText']);
+    print(json['quoteAuthor']);
+    print(json['quoteGenre']);
+    return Quote(
+      text: json['quoteText'],
+      author: json['quoteAuthor'],
+      genre: json['quoteGenre'],
+    );
+  }
 
   @override
   List<Object?> get props => [text];
