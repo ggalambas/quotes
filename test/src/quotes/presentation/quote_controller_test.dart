@@ -28,7 +28,7 @@ void main() {
       expect(controller.debugState, hasLength(0));
     });
     group('fetchMoreQuotes', () {
-      test('fetchMoreQuotes success', () async {
+      test('fetchMoreQuotes updates state with a quote', () async {
         // setup
         when(() => quoteRepository.fetchRandomQuotes())
             .thenAnswer((_) => Future.value([testQuote]));
@@ -47,7 +47,19 @@ void main() {
         // run
         controller.fetchMoreQuotes();
       });
-      test('fetchMoreQuotes failure', () async {
+      test('fetchMoreQuotes updates state with empty list', () async {
+        // setup
+        when(() => quoteRepository.fetchRandomQuotes())
+            .thenAnswer((_) => Future.value([]));
+        // expect later
+        expectLater(
+          controller.stream,
+          emits([]),
+        );
+        // run
+        controller.fetchMoreQuotes();
+      });
+      test('fetchMoreQuotes does not update state', () async {
         // setup
         final exception = Exception('Connection failed');
         when(() => quoteRepository.fetchRandomQuotes()).thenThrow(exception);
