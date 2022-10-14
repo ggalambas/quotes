@@ -8,6 +8,8 @@ import 'package:share_plus/share_plus.dart';
 
 import 'quotation_mark.dart';
 
+const kQuotePageLoadingKey = Key('quote-page-loading');
+
 class QuotePage extends ConsumerWidget {
   final bool isLoading;
   final IllustratedQuote quote;
@@ -15,6 +17,7 @@ class QuotePage extends ConsumerWidget {
       : super(key: key);
 
   factory QuotePage.loading() => QuotePage(
+        key: kQuotePageLoadingKey,
         isLoading: true,
         IllustratedQuote(
           image: Image.network(kIsWeb
@@ -62,17 +65,25 @@ class QuotePage extends ConsumerWidget {
                 ),
           ),
           const SizedBox(height: 32),
-          Align(
-            alignment: Alignment.center,
-            child: TextButton.icon(
-              onPressed: () => Share.share(
-                '${quote.text}\n\n~ ${quote.author}',
-                subject: 'Interesting quote about ${quote.genre}!',
-              ),
-              icon: const Icon(Icons.share, size: 18),
-              label: const Text('Share'),
-            ),
-          ),
+          isLoading
+              ? Text(
+                  'Loading...',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                )
+              : Align(
+                  alignment: Alignment.center,
+                  child: TextButton.icon(
+                    onPressed: () => Share.share(
+                      '${quote.text}\n\n~ ${quote.author}',
+                      subject: 'Interesting quote about ${quote.genre}!',
+                    ),
+                    icon: const Icon(Icons.share, size: 18),
+                    label: const Text('Share'),
+                  ),
+                ),
           const Spacer(),
           Text(
             quote.author,

@@ -43,6 +43,8 @@ dependencies:
   share_plus: ^4.5.3
   mocktail: ^0.3.0
   equatable: ^2.0.5
+  network_image_mock: ^2.1.1
+  custom_refresh_indicator: ^1.2.1
 
 dev_dependencies:
   flutter_test:

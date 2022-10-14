@@ -44,26 +44,24 @@ void main() {
         // run
         controller.fetchMoreQuotes();
       });
-      test('fetchMoreQuotes updates state with empty list', () async {
+      test('fetchMoreQuotes gets empty list, does not update state', () async {
         // setup
         when(() => quoteRepository.fetchRandomQuotes())
             .thenAnswer((_) => Future.value([]));
-        // expect later
-        expectLater(
-          controller.stream,
-          emits([]),
-        );
         // run
-        controller.fetchMoreQuotes();
+        await controller.fetchMoreQuotes();
+        // expect
+        expect(controller.debugState, []);
       });
-      test('fetchMoreQuotes does not update state', () async {
+      test('fetchMoreQuotes catches exception, does not update state ',
+          () async {
         // setup
         final exception = Exception('Connection failed');
         when(() => quoteRepository.fetchRandomQuotes()).thenThrow(exception);
         // run
         await controller.fetchMoreQuotes();
-        // expect later
-        expect(controller.debugState, hasLength(0));
+        // expect
+        expect(controller.debugState, []);
       });
     });
   });

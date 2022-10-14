@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quotes/src/utils/testing.dart';
 
 class QuotationMark extends StatelessWidget {
   final bool animated;
@@ -18,7 +19,7 @@ class QuotationMark extends StatelessWidget {
             height: 0.4,
           ),
     );
-    return !animated
+    return !animated || isTesting
         ? text
         : text
             .animate(

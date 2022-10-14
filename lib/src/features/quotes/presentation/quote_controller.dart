@@ -40,7 +40,9 @@ class QuoteController extends StateNotifier<List<IllustratedQuote>> {
           return IllustratedQuote(quote: quote, image: image);
         }),
       );
-      state = [...state, ...illustrated];
+      if (illustrated.isNotEmpty) {
+        state = [...state, ...illustrated];
+      }
     } catch (_) {}
   }
 }
